@@ -10,12 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.nazariihrabovskyi.qrscn.MainActivity">
 
-    <Button android:id="@+id/scan_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/scan"
-        android:layout_alignParentTop="true" />
-
     <TextView
         android:text="Content"
         android:layout_width="wrap_content"
@@ -38,20 +32,69 @@
         android:layout_alignRight="@+id/scan_content"
         android:layout_alignEnd="@+id/scan_content" />
 
-    <Button
-        android:text="Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button2"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
     <Button
-        android:text="Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button"
+        android:text="Update"
+        android:id="@+id/button_update"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="63dp"
+        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:id="@+id/button_delete"
+        android:layout_alignBaseline="@+id/button_update"
+        android:layout_alignBottom="@+id/button_update"
+        android:layout_toLeftOf="@+id/button_update"
+        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View All"
+        android:id="@+id/button_viewAll"
+        android:layout_toLeftOf="@+id/button_delete"
+        android:layout_toStartOf="@+id/button_delete"
+        android:layout_alignBottom="@+id/button_delete"
+        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Data"
+        android:id="@+id/button_add"
+        android:layout_alignTop="@+id/button_viewAll"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/button_viewAll"
+        android:layout_toStartOf="@+id/button_viewAll"
+        android:layout_alignBottom="@+id/button_viewAll"
+        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+    <Button android:id="@+id/scan_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/scan"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:elevation="0dp"
+        style="@android:style/Widget.Material.Light.Button"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_id"
+        android:layout_below="@+id/button_delete"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="Enter ID to delete"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 </RelativeLayout>

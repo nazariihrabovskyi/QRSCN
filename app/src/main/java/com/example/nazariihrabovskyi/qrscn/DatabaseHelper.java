@@ -9,12 +9,11 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME = "Student.db";
-    public static final String TABLE_NAME = "student_table";
+    public static final String DATABASE_NAME = "Scan.db";
+    public static final String TABLE_NAME = "scan_table";
     public static final String COL_1 = "ID";
-    public static final String COL_2 = "NAME";
-    public static final String COL_3 = "SURNAME";
-    public static final String COL_4 = "MARKS";
+    public static final String COL_2 = "TEXT";
+    public static final String COL_3 = "TYPE";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -31,12 +30,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertData(String name,String surname,String marks) {
+    public boolean insertData(String text,String type) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_2,name);
-        contentValues.put(COL_3,surname);
-        contentValues.put(COL_4,marks);
+        contentValues.put(COL_2,text);
+        contentValues.put(COL_3,type);
         long result = db.insert(TABLE_NAME,null ,contentValues);
         if(result == -1)
             return false;
@@ -50,19 +48,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return res;
     }
 
-    public boolean updateData(String id,String name,String surname,String marks) {
+ /*   public boolean updateData(String id,String text,String type) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_1,id);
-        contentValues.put(COL_2,name);
-        contentValues.put(COL_3,surname);
-        contentValues.put(COL_4,marks);
+        contentValues.put(COL_2,text);
+        contentValues.put(COL_3,type);
         db.update(TABLE_NAME, contentValues, "ID = ?",new String[] { id });
         return true;
-    }
+    }*/
+
 
     public Integer deleteData (String id) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_NAME, "ID = ?",new String[] {id});
+    }
+
+
+    public boolean updateData(String text, String type) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_2,text);
+        contentValues.put(COL_3,type);
+        db.update(TABLE_NAME, contentValues, "ID = ?",new String[]{});
+        return true;
     }
 }
