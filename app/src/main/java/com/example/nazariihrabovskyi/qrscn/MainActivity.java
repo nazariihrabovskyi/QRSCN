@@ -24,26 +24,30 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     Button btnDelete;
     EditText editTextId;
     @Override
+
+    //super.onCreate(savedInstanceState);
+    //setContentView(R.layout.activity_main);
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         myDb = new DatabaseHelper(this);
 
+        scanBtn = (Button)findViewById(R.id.scan_button);
+        formatTxt = (TextView)findViewById(R.id.scan_format);
+        contentTxt = (TextView)findViewById(R.id.scan_content);
+        scanBtn.setOnClickListener(this);
         btnAddData = (Button)findViewById(R.id.button_add);
         btnviewAll = (Button)findViewById(R.id.button_viewAll);
         btnviewUpdate= (Button)findViewById(R.id.button_update);
         btnDelete= (Button)findViewById(R.id.button_delete);
+        editTextId = (EditText) findViewById(R.id.editText_id);
         AddData();
         viewAll();
         UpdateData();
         DeleteData();
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        scanBtn = (Button)findViewById(R.id.scan_button);
-        formatTxt = (TextView)findViewById(R.id.scan_format);
-        contentTxt = (TextView)findViewById(R.id.scan_content);
-        scanBtn.setOnClickListener(this);
+
+
     }
     public void onClick(View v){
         if(v.getId()==R.id.scan_button){
